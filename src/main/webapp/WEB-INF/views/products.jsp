@@ -19,14 +19,18 @@
 
         <section class="container">
             <div class="row">
-                <div class="card col-sm-6 col-md-3" style="width: 18rem;">
-                    <div class="card-body">
-                        <h3 class="card-title"> ${product.name} </h3>
-                        <p class="card-text"> ${product.description} </p>
-                        <p class="card-text"> ${product.unitPrice} USD</p>
-                        <p class="card-text"> Available ${product.unitsInStock} units in stock </p>
+                <c:forEach items="${products}" var="product">
+                    <div class="card-deck col-sm-6 col-md-4">
+                        <div class="card" style="padding-bottom: 15px; width: 18rem;">
+                            <div class="card-body">
+                                <h3 class="card-title"> ${product.name} </h3>
+                                <p class="card-text"> ${product.description} </p>
+                                <p class="card-text"> ${product.unitPrice} USD</p>
+                                <p class="card-text"> Available ${product.unitsInStock} units in stock </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </c:forEach>
             </div>
         </section>
     </body>
