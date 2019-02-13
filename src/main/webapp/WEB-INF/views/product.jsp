@@ -13,6 +13,8 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+        <title>Products</title>
     </head>
     <body>
         <section>
@@ -24,18 +26,16 @@
 
         <section class="container">
             <div class="row">
-                <c:forEach items="${products}" var="product">
-                    <div class="card-deck col-sm-6 col-md-4">
-                        <div class="card" style="padding-bottom: 15px; width: 18rem;">
-                            <div class="card-body">
-                                <h3 class="card-title"> ${product.name} </h3>
-                                <p class="card-text"> ${product.description} </p>
-                                <p class="card-text"> ${product.unitPrice} USD</p>
-                                <p class="card-text"> Available ${product.unitsInStock} units in stock </p>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
+                <div class="col-md-5">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <p><strong>Item Code : </strong><span class="badge badge-warning">${product.productId}</span></p>
+                    <p><strong>manufacturer</strong> : ${product.manufacturer}</p>
+                    <p><strong>category</strong> : ${product.category}</p>
+                    <p><strong>Available units in stock </strong> : ${product.unitsInStock}</p>
+                    <h4>${product.unitPrice} USD</h4>
+                    <p><a href="#" class="btn btn-warning btn-large"><span class="fas fa-shopping-cart"></span> Order Now</a></p>
+                </div>
             </div>
         </section>
         <!-- Optional JavaScript -->

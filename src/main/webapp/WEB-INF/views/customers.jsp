@@ -1,37 +1,47 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-<section>
-    <div class="jumbotron">
-        <h1>Customers</h1>
-        <p>All the available customers in our store</p>
-    </div>
-</section>
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<section class="container">
-    <div class="row">
-        <c:forEach items="${customers}" var="customer">
-            <div class="card-deck col-sm-6 col-md-4">
-                <div class="card" style="padding-bottom: 15px; width: 18rem;">
-                    <div class="card-body">
-                        <h3 class="card-title"> ${customer.customerId} </h3>
-                        <p class="card-text"> name: ${customer.name} </p>
-                        <p class="card-text"> address: ${customer.address }</p>
-                        <p class="card-text"> Number of orders made: ${customer.noOfOrdersMade} </p>
-                    </div>
-                </div>
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    </head>
+    <body>
+        <section>
+            <div class="jumbotron">
+                <h1>Customers</h1>
+                <p>All the available customers in our store</p>
             </div>
-        </c:forEach>
-    </div>
-</section>
-</body>
+        </section>
+
+        <section class="container">
+            <div class="row">
+                <c:forEach items="${customers}" var="customer">
+                    <div class="card-deck col-sm-6 col-md-4">
+                        <div class="card" style="padding-bottom: 15px; width: 18rem;">
+                            <div class="card-body">
+                                <h3 class="card-title"> ${customer.customerId} </h3>
+                                <p class="card-text"> name: ${customer.name} </p>
+                                <p class="card-text"> address: ${customer.address }</p>
+                                <p class="card-text"> Number of orders made: ${customer.noOfOrdersMade} </p>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+        </section>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+    </body>
 </html>
