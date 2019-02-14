@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!doctype html>
 <html lang="en">
@@ -32,6 +33,7 @@
                                 <p class="card-text"> ${product.description} </p>
                                 <p class="card-text"> ${product.unitPrice} USD</p>
                                 <p class="card-text"> Available ${product.unitsInStock} units in stock </p>
+                                <p><a href="<spring:url value="/products/product?id=${product.productId}"/>" class="btn btn-primary"><span class="fas fa-info"></span> Details</a></p>
                             </div>
                         </div>
                     </div>

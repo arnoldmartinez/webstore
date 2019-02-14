@@ -19,7 +19,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping("/all")
+    @RequestMapping
     public String list(Model model) {
         model.addAttribute("products", productService.getAllProducts());
 
