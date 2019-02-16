@@ -2,6 +2,7 @@ package com.packt.webstore.repository.impl;
 
 import com.packt.webstore.domain.Product;
 import com.packt.webstore.repository.ProductRepository;
+import com.sun.scenario.effect.impl.prism.PrDrawable;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -98,5 +99,18 @@ public class InMemoryProductRepository implements ProductRepository {
         productsByCategory.retainAll(productsByBrand);
 
         return productsByCategory;
+    }
+
+    @Override
+    public List<Product> getProductsByManufacturer(String manufacturer) {
+        List<Product> productsByManufacturer = new ArrayList<>();
+
+        for(Product product : listOfProducts) {
+            if(manufacturer.equalsIgnoreCase(product.getManufacturer())) {
+                productsByManufacturer.add(product);
+            }
+        }
+
+        return productsByManufacturer;
     }
 }
