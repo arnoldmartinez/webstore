@@ -2,7 +2,6 @@ package com.packt.webstore.repository.impl;
 
 import com.packt.webstore.domain.Product;
 import com.packt.webstore.repository.ProductRepository;
-import com.sun.scenario.effect.impl.prism.PrDrawable;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -112,5 +111,10 @@ public class InMemoryProductRepository implements ProductRepository {
         }
 
         return productsByManufacturer;
+    }
+
+    @Override
+    public void addProduct(Product product) {
+        listOfProducts.add(product);
     }
 }
