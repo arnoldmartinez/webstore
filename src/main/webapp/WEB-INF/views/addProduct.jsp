@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!doctype html>
 <html lang="en">
@@ -29,7 +30,9 @@
                     <legend>Add new Product</legend>
 
                     <div class="form-group">
-                        <label class="control-label col-lg-2 col-lg-2" for="productId">Product Id</label>
+                        <label class="control-label col-lg-2 col-lg-2" for="productId">
+                            <spring:message code="addProduct.form.productId.label"> </spring:message>
+                        </label>
                         <div class="col-lg-10">
                             <form:input id="productId" path="productId" type="text" class="form:input-large"/>
                         </div>
