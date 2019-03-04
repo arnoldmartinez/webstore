@@ -30,6 +30,7 @@
                     <div class="card-deck col-sm-6 col-md-4">
                         <div class="card" style="padding-bottom: 15px; width: 18rem;">
                             <div class="card-body">
+                                <img src="<c:url value="/resources/images/${product.productId}.png"></c:url>" alt="image" style="width:100%"/>
                                 <h3 class="card-title"> ${product.name} </h3>
                                 <p class="card-text"> ${product.description} </p>
                                 <p class="card-text"> ${product.unitPrice} USD</p>
