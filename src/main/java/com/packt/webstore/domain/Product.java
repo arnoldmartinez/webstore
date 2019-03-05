@@ -19,6 +19,7 @@ public class Product {
     private boolean discontinued;
     private String condition;
     private MultipartFile productImage;
+    private MultipartFile productPDF;
 
     public Product() {
         super();
