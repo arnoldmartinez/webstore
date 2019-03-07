@@ -2,6 +2,7 @@ package com.packt.webstore.controller;
 
 import com.packt.webstore.domain.Product;
 import com.packt.webstore.exception.NoProductsFoundUnderCategoryException;
+import com.packt.webstore.exception.ProductNotFoundException;
 import com.packt.webstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -114,5 +116,18 @@ public class ProductController {
     public void initialiseBinder(WebDataBinder binder) {
         binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category", "unitsInStock", "condition", "productImage", "productPDF");
         binder.setDisallowedFields("unitInOrder", "discontinued");
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ModelAndView handleError(HttpServletRequest request, ProductNotFoundException exception) {
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.addObject("invalidProductId", exception.getProductId());
+        modelAndView.addObject("exception", exception);
+        modelAndView.addObject("url", request.getRequestURL() + "?" + request.getQueryString());
+
+        modelAndView.setViewName("productNotFound");
+
+        return modelAndView;
     }
 }
