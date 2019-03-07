@@ -1,6 +1,7 @@
 package com.packt.webstore.controller;
 
 import com.packt.webstore.domain.Product;
+import com.packt.webstore.exception.NoProductsFoundUnderCategoryException;
 import com.packt.webstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,9 +31,15 @@ public class ProductController {
         return "products";
     }
 
-    @RequestMapping("/{category}")
-    public String getProductsByCategory(Model model, @PathVariable("category") String productCategory) {
-        model.addAttribute("products", productService.getProductsByCategory(productCategory));
+    @RequestMapping(value = "/{category}", method = RequestMethod.GET)
+    public String getProductsByCategory(Model model, @PathVariable("category") String category) {
+        List<Product> products = productService.getProductsByCategory(category);
+
+        if(products == null || products.isEmpty()) {
+            throw new NoProductsFoundUnderCategoryException();
+        }
+
+        model.addAttribute("products", products);
 
         return "products";
     }
