@@ -29,6 +29,7 @@
         </section>
         <section class="container">
             <form:form modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
+                <form:errors path="*" cssClass="alert alert-danger" element="div" />
                 <fieldset>
                     <legend>Add new Product</legend>
 
@@ -38,6 +39,7 @@
                         </label>
                         <div class="col-lg-10">
                             <form:input id="productId" path="productId" type="text" class="form:input-large"/>
+                            <form:errors path="productId" cssClass="text-danger" />
                         </div>
                     </div>
 
@@ -45,6 +47,7 @@
                         <label class="control-label col-lg-2 col-lg-2" for="name">Name</label>
                         <div class="col-lg-10">
                             <form:input id="name" path="name" type="text" class="form:input-large"/>
+                            <form:errors path="name" cssClass="text-danger" />
                         </div>
                     </div>
 
@@ -52,6 +55,7 @@
                         <label class="control-label col-lg-2 col-lg-2" for="unitPrice">Unit Price</label>
                         <div class="col-lg-10">
                             <form:input id="unitPrice" path="unitPrice" type="text" class="form:input-large"/>
+                            <form:errors path="unitPrice" cssClass="text-danger" />
                         </div>
                     </div>
 
