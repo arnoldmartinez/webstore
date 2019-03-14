@@ -2,6 +2,7 @@ package com.packt.webstore.domain;
 
 import lombok.Data;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.*;
@@ -26,7 +27,11 @@ public class Product {
 
     private String description;
     private String manufacturer;
+
+    @NotEmpty(message = "{NotEmpty.Product.category.validation}")
     private String category;
+
+    @Min(value = 0, message = "{Min.Product.unitsInStock.validation}")
     private long unitsInStock;
     private long unitInOrder;
     private boolean discontinued;
