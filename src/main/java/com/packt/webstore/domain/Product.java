@@ -1,5 +1,6 @@
 package com.packt.webstore.domain;
 
+import com.packt.webstore.validator.Category;
 import com.packt.webstore.validator.ProductId;
 import lombok.Data;
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -30,6 +31,7 @@ public class Product {
     private String description;
     private String manufacturer;
 
+    @Category
     @NotEmpty(message = "{NotEmpty.Product.category.validation}")
     private String category;
 
