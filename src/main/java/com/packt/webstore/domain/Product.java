@@ -1,5 +1,6 @@
 package com.packt.webstore.domain;
 
+import com.packt.webstore.validator.ProductId;
 import lombok.Data;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
 @XmlRootElement
 public class Product {
 
+    @ProductId
     @Pattern(regexp="P[0-9]+", message="{Pattern.Product.productId.validation}")
     private String productId;
 
