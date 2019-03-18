@@ -14,16 +14,25 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <title>Products</title>
     </head>
     <body>
         <section>
             <div class="jumbotron">
-                <h1>Products</h1>
-                <p>All the available products in our store</p>
-                <a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
-                <div class="pull-right" style="padding-right:50px">
-                    <a href="?language=en" >English</a>|<a href="?language=nl">Dutch</a>
+                <div class="container">
+                    <h1>Products</h1>
+                    <p>Add products</p>
+                    <a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
+                    <div class="pull-right" style="padding-right:50px">
+                        <a href="?language=en">English</a>|<a href="?language=nl">Dutch</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -99,7 +108,8 @@
 
                     <div class="form-group">
                         <label class="control-label col-lg-2" for="productImage">
-                        <spring:message code="addProduct.form.productImage.label" />
+                            <spring:message code="addProduct.form.productImage.label" />
+                        </label>
                         <div class="col-lg-10">
                             <form:input id="productImage" path="productImage" type="file" class="form:input-large" />
                             <form:errors path="productImage" cssClass="text-danger" />
@@ -108,7 +118,8 @@
 
                     <div class="form-group">
                         <label class="control-label col-lg-2" for="productPDF">
-                        <spring:message code="addProduct.form.productPDF.label" />
+                            <spring:message code="addProduct.form.productPDF.label" />
+                        </label>
                         <div class="col-lg-10">
                             <form:input id="productPDF" path="productPDF" type="file" class="form:input-large" />
                         </div>
@@ -122,5 +133,7 @@
                 </fieldset>
             </form:form>
         </section>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>

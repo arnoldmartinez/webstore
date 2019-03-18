@@ -13,15 +13,22 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
         <title>Products</title>
     </head>
     <body>
         <section>
             <div class="jumbotron">
-                <h1>Products</h1>
-                <p>All the available products in our store</p>
+                <div class="container">
+                    <h1>Products</h1>
+                </div>
+                <!--<p>All the available products in our store</p>-->
             </div>
         </section>
 
@@ -29,22 +36,36 @@
             <div class="row">
                 <div class="col-md-5">
                     <img src="<c:url value="/resources/images/${product.productId}.png"></c:url>" alt="image" style="width:100%" />
+                </div>
+                <div class="col-md-5">
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
-                    <p><strong>Item Code : </strong><span class="badge badge-warning">${product.productId}</span></p>
-                    <p><strong>manufacturer</strong> : ${product.manufacturer}</p>
-                    <p><strong>category</strong> : ${product.category}</p>
-                    <p><strong>Available units in stock </strong> : ${product.unitsInStock}</p>
+                    <p>
+                        <strong>Item Code : </strong><span class="label label-warning">${product.productId}</span>
+                    </p>
+                    <p>
+                        <strong>manufacturer</strong> : ${product.manufacturer}
+                    </p>
+                    <p>
+                        <strong>category</strong> : ${product.category}
+                    </p>
+                    <p>
+                        <strong>Availble units in stock </strong> :
+                        ${product.unitsInStock}
+                    </p>
                     <h4>${product.unitPrice} USD</h4>
-                    <p><a href="#" class="btn btn-warning btn-large"><span class="fas fa-shopping-cart"></span> Order Now</a></p>
-                    <a href="<spring:url value="/products" />" class="btn btn-light"><span class="fas fa-hand-point-left"></span> back</a>
+                    <p>
+                        <a href="<spring:url value="/products" />" class="btn btn-default">
+                            <span class="glyphicon-hand-left glyphicon"></span> back
+                        </a>
+                        <a href="#" class="btn btn-warning btn-large"> <span
+                                class="glyphicon-shopping-cart glyphicon"></span> Order Now
+                        </a>
+                    </p>
                 </div>
             </div>
         </section>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
