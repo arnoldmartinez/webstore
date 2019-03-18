@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<html>
+<!doctype html>
+<html lang="en">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -24,53 +25,61 @@
 
         <script src="/webstore/resources/js/controllers.js"></script>
 
-        <title>Products</title>
+        <title>Cart</title>
     </head>
     <body>
         <section>
             <div class="jumbotron">
                 <div class="container">
-                    <h1>Products</h1>
+                    <h1>Cart</h1>
+                    <p>All the selected products in your cart</p>
+                    <a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
                 </div>
-                <!--<p>All the available products in our store</p>-->
             </div>
         </section>
 
         <section class="container" ng-app="cartApp">
-            <div class="row">
-                <div class="col-md-5">
-                    <img src="<c:url value="/resources/images/${product.productId}.png"></c:url>" alt="image" style="width:100%" />
-                </div>
-                <div class="col-md-5">
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                    <p>
-                        <strong>Item Code : </strong><span class="label label-warning">${product.productId}</span>
-                    </p>
-                    <p>
-                        <strong>manufacturer</strong> : ${product.manufacturer}
-                    </p>
-                    <p>
-                        <strong>category</strong> : ${product.category}
-                    </p>
-                    <p>
-                        <strong>Availble units in stock </strong> :
-                        ${product.unitsInStock}
-                    </p>
-                    <h4>${product.unitPrice} USD</h4>
-                    <p>
-                        <a href="<spring:url value="/products" />" class="btn btn-default">
-                            <span class="glyphicon-hand-left glyphicon"></span> back
-                        </a>
-                    <p ng-controller="cartCtrl">
-                        <a href="#" class="btn btn-warning btn-large" ng-click="addToCart('${product.productId}')">
-                            <span class="glyphicon-shopping-cart glyphicon"></span> Order Now
-                        </a>
-                    </p>
-                    <a href="<spring:url value="/cart" />" class="btn btn-default">
-                        <span class="glyphicon-hand-right glyphicon"></span>View Cart
+            <div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
+
+                <div>
+                    <a class="btn btn-danger pull-left" ng-click="clearCart()">
+                        <span class="glyphicon glyphicon-remove-sign"></span> Clear Cart
+                    </a>
+                    <a href="#" class="btn btn-success pull-right">
+                        <span class="glyphicon-shopping-cart glyphicon"></span> Check out
                     </a>
                 </div>
+
+                <table class="table table-hover">
+                    <tr>
+                        <th>Product</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr ng-repeat="item in cart.cartItems">
+                        <td>{{item.product.productId}}-{{item.product.name}}</td>
+                        <td>{{item.product.unitPrice}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.totalPrice}}</td>
+                        <td>
+                            <a href="#" class="label label-danger" ng-click="removeFromCart(item.product.productId)">
+                                <span class="glyphicon glyphicon-remove" ></span>Remove
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Grand Total</th>
+                        <th>{{cart.grandTotal}}</th>
+                    </tr>
+                </table>
+
+                <a href="<spring:url value="/products" />" class="btn btn-default">
+                    <span class="glyphicon-hand-left glyphicon"></span>Continue shopping
+                </a>
             </div>
         </section>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
