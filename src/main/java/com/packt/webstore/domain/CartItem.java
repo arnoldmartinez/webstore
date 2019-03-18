@@ -3,12 +3,15 @@ package com.packt.webstore.domain;
 import lombok.Data;
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
-public class CartItem {
+public class CartItem implements Serializable {
 
-    @Getter
+	private static final long serialVersionUID = 1L;
+
+	@Getter
     private Product product;
 
     @Getter

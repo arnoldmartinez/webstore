@@ -4,14 +4,17 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 @Data
-public class Cart {
+public class Cart implements Serializable {
 
-    @Getter @Setter private String cartId;
+	private static final long serialVersionUID = 1L;
+
+	@Getter @Setter private String cartId;
 
     @Getter @Setter private Map<String, CartItem> cartItems;
 
