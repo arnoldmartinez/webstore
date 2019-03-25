@@ -23,16 +23,6 @@
         <title>Products</title>
     </head>
     <body>
-        <section>
-            <div class="jumbotron">
-                <div class="container">
-                    <h1>Products</h1>
-                    <p>All the available products in our store</p>
-                    <a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">logout</a>
-                </div>
-            </div>
-        </section>
-
         <section class="container">
             <div class="row">
                 <c:forEach items="${products}" var="product">

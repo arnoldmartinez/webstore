@@ -28,16 +28,6 @@
         <title>Cart</title>
     </head>
     <body>
-        <section>
-            <div class="jumbotron">
-                <div class="container">
-                    <h1>Cart</h1>
-                    <p>All the selected products in your cart</p>
-                    <a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">Logout</a>
-                </div>
-            </div>
-        </section>
-
         <section class="container" ng-app="cartApp">
             <div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
 

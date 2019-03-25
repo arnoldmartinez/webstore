@@ -15,13 +15,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     </head>
     <body>
-        <section>
-            <div class="jumbotron">
-                <h1>Customers</h1>
-                <p>All the available customers in our store</p>
-            </div>
-        </section>
-
         <section class="container">
             <div class="row">
                 <c:forEach items="${customers}" var="customer">
