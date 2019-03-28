@@ -34,7 +34,7 @@ public class CategoryValidator implements ConstraintValidator<Category, String> 
         boolean valid = false;
 
         for (String category : allowedCategories) {
-            if(value.equals(category)) {
+            if(category.equals(value)) {
                 valid = true;
             }
         }
